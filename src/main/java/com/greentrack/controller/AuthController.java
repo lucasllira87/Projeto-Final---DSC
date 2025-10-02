@@ -4,7 +4,6 @@ import com.greentrack.config.JwtUtil;
 import com.greentrack.dto.UserDTO;
 import com.greentrack.entity.User;
 import com.greentrack.service.UserService;
-import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,12 +15,9 @@ import java.util.Map;
 public class AuthController {
     private final UserService userService;
     private final JwtUtil jwtUtil;
-    private final ModelMapper mapper;
-
-    public AuthController(UserService userService, JwtUtil jwtUtil, ModelMapper mapper) {
+    public AuthController(UserService userService, JwtUtil jwtUtil) {
         this.userService = userService;
         this.jwtUtil = jwtUtil;
-        this.mapper = mapper;
     }
 
     @PostMapping("/register")
@@ -38,6 +34,6 @@ public class AuthController {
         org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder encoder = new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder();
         if (!encoder.matches(password, user.getPassword())) throw new RuntimeException("Invalid credentials");
         String token = jwtUtil.generateToken(user.getEmail());
-        return ResponseEntity.ok(Map.of("token", token));
+        return ResponseEntity.ok(java.util.Collections.singletonMap("token", token));
     }
 }

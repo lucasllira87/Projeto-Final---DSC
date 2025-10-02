@@ -21,3 +21,7 @@ hs_err_pid*
 /out/
 /spring.log
 logs/
+
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md
