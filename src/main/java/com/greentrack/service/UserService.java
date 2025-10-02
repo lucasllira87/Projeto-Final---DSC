@@ -41,7 +41,7 @@ public class UserService {
         return userRepository.findById(id).map(u -> {
             u.setUsername(dto.getUsername());
             u.setEmail(dto.getEmail());
-            if (dto.getPassword() != null && !dto.getPassword().isBlank()) {
+            if (dto.getPassword() != null && !dto.getPassword().trim().isEmpty()) {
                 u.setPassword(passwordEncoder.encode(dto.getPassword()));
             }
             u.setCarbonGoal(dto.getCarbonGoal());

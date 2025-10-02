@@ -17,6 +17,7 @@ public class JwtUtil {
     @Value("${jwt.expiration-ms}")
     private Long expirationMs;
 
+    @SuppressWarnings("deprecation")
     public String generateToken(String username) {
         Date now = new Date();
         Date exp = new Date(now.getTime() + expirationMs);
@@ -29,6 +30,7 @@ public class JwtUtil {
     }
 
     public String extractUsername(String token) {
+        @SuppressWarnings("deprecation")
         Claims claims = Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(token).getBody();
         return claims.getSubject();
     }
