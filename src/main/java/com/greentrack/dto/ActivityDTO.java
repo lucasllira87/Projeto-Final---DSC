@@ -19,4 +19,20 @@ public class ActivityDTO {
     public void setCategory(String category) { this.category = category; }
     public Double getEmissionFactor() { return emissionFactor; }
     public void setEmissionFactor(Double emissionFactor) { this.emissionFactor = emissionFactor; }
+    public void setCarbonValue(Object carbonValue) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setCarbonValue'");
+    }
+    public void setDescription(Object description) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setDescription'");
+    }
+    public Object getDescription() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getDescription'");
+    }
+    public Object getCarbonValue() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCarbonValue'");
+    }
 }

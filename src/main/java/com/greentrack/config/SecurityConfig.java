@@ -1,5 +1,6 @@
 package com.greentrack.config;
 
+import com.greentrack.entity.User;
 import com.greentrack.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,8 +37,9 @@ public class SecurityConfig {
         return new UserDetailsService() {
             @Override
             public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-                return userRepository.findByUsername(username)
+                User user = userRepository.findByUsername(username)
                         .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado: " + username));
+                return user; // precisa implementar UserDetails
             }
         };
     }
@@ -88,6 +90,7 @@ public class SecurityConfig {
         return http.build();
     }
 }
+
 
 
 
