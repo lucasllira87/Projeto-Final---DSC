@@ -85,5 +85,10 @@ public class ActivityService {
     public void delete(Long id) {
         activityRepository.deleteById(id);
     }
+
+    public List<ActivityDTO> findByCategory(String category) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findByCategory'");
+    }
 }
 
